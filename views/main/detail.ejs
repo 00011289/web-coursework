@@ -1,0 +1,39 @@
+<%- include('../reusablePart/header.ejs') %>
+    </head>
+
+    <body>
+        <%- include('../reusablePart/nav.ejs') %>
+            <main class="mt-5 px-5 shadow container">
+                <h4>
+                    <%= user[0].firstName %>
+                        <%= user[0].lastName %>
+                </h4>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item ">age:
+                        <%= user[0].age %>
+                    </li>
+                    <li class="list-group-item ">interest:
+                        <%= user[0].interest %>
+                    </li>
+                    <li class="list-group-item ">subject:
+                        <%= user[0].subject %>
+                    </li>
+                    <li class="list-group-item ">hours:
+                        <%= user[0].hours %>
+                    </li>
+                    <li class="list-group-item ">days:
+                        <%= user[0].days %>
+                    </li>
+                </ul>
+                <p>
+                    <span class="font-weight-bold">purpose of plan:</span>
+                    <%= user[0].reason_of_task %>
+                </p>
+                <hr>
+                <form action="/user-delete" method="post">
+                    <input type="hidden" name="userId" value="<%= user[0]._id %>">
+                    <button class="btn btn-danger">Delete</button>
+                </form>
+            </main>
+
+            <%- include('../reusablePart/footer.ejs') %>

@@ -1,0 +1,63 @@
+<%- include('../reusablePart/header.ejs') %>
+    </head>
+
+    <body>
+        <%- include('../reusablePart/nav.ejs') %>
+
+            <div class="container mt-4 shadow">
+                <h4 class="text-primary">Add new task bellow</h4>
+                <hr>
+                <form action="/add-new-task" method="post">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="firstName">Name</label>
+                            <input type="text" name="firstName" class="form-control" id="firstName" placeholder="Jack" required>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="lastName">Last Name</label>
+                            <input type="text" name="lastName" required class="form-control" id="lastName" placeholder="London">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="interest">Interested In</label>
+                            <input type="text" name="interest" class="form-control" id="interest" placeholder="reading lots of books" required>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="subject">Which subject you want to learn?</label>
+                            <input type="text" name="subject" required class="form-control" id="subject" placeholder="Mathematics">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="hours">How many hours you want study per day</label>
+                            <input type="number" name="hours" class="form-control" id="hours" placeholder="2-10" required>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="days">How many days you want study?</label>
+                            <input type="number" name="days" required class="form-control" id="days" placeholder="5-10">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="reason_of_task">What are reasons of making current plan?</label>
+                            <input type="text" name="reason_of_task" class="form-control" id="reason_of_task" placeholder="in order to enhance knowledge with more motivation" required>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="age">How old are you?</label>
+                            <input type="number" name="age" required class="form-control" id="age" placeholder="18">
+                        </div>
+                    </div>
+                    <div class="form-row d-flex align-items-end">
+                        <div class="form-group col-md-8">
+                            <label for="resources">What resources do you need?</label>
+                            <input type="text" name="resources" required placeholder="book,pen, laptop,papers" class="form-control" id="resources">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <button class="btn btn-primary w-100" type="submit">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <%- include('../reusablePart/footer.ejs') %>

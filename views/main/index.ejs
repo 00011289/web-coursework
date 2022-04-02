@@ -1,0 +1,47 @@
+<%- include('../reusablePart/header.ejs') %>
+    </head>
+
+    <body>
+        <%- include('../reusablePart/nav.ejs') %>
+            <div class="container mt-5 d-flex justify-content-between">
+                <h4>List of students tasks (its not official, its done only for academic module web tech)</h4>
+                <a href="/add-new-task"><button class="btn btn-primary">Add new task +</button></a>
+            </div>
+            <div id="accordion" class="container mt-3">
+                <% if (users_tasks.length > 0) { %>
+                    <% for (let user_task of users_tasks) { %>
+                        <div class="card">
+                            <div class="card-header" id="headingOne">
+                                <h5 class="mb-0">
+                                    <button class="btn text-left  w-100" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    <%= user_task.firstName %>
+                                    <%= user_task.lastName %>
+                  </button>
+                                </h5>
+                            </div>
+
+                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                                <div class="card-body">
+                                    <h5>
+                                        <%= user_task.subject %>
+                                    </h5>
+                                    <p>
+                                        <%= user_task.reason_of_task %>
+                                    </p>
+                                    <div class="d-flex mt-2">
+                                        <a href="/user-edit/<%= user_task._id %>"><button class="btn btn-warning">Edit</button></a>
+                                        <form action="/user-detail" class="mx-2" method="post">
+                                            <input type="hidden" value="<%= user_task._id %>" name="user_task">
+                                            <button class="btn btn-primary" type="submit">See more</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <% } %>
+                            <% } else { %>
+                                <h1>No Tasks Found!</h1>
+                                <% } %>
+            </div>
+
+            <%- include('../reusablePart/footer.ejs') %>
